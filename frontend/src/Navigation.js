@@ -31,6 +31,16 @@ function Navigation() {
         )
     }
 
+    let addPlaceBtn = null;
+
+    if(currentUser?.role === 'admin') {
+        addPlaceBtn = (
+            <li>
+                <a href="#" onClick={()=>history.push('/places/new')}>Add Place</a>
+            </li>
+        )
+    }
+
     return (
         <nav>
             <ul>
@@ -44,11 +54,7 @@ function Navigation() {
                         Places
                     </a>
                 </li>
-                <li>
-                    <a href="#" onClick={() => history.push("/places/new")}>
-                        Add Place
-                    </a>
-                </li>
+                {addPlaceBtn}
                 {loginActions}
             </ul>
         </nav>
